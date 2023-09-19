@@ -4,14 +4,14 @@
   "width": 800,
   "height": 400,
   "data": {
-    "url": "ne_110m_admin_0_countries.topojson",
+    "url": "https://raw.githubusercontent.com/IsaacAlderton/FIT3179/main/ne_110m_admin_0_countries.topojson",
     "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
   },
   "projection": {"type": "equalEarth"},
   "layer":[
     {
       "data": {
-        "url": "oceans.topojson",
+        "url": "https://raw.githubusercontent.com/IsaacAlderton/FIT3179/main/oceans.topojson",
         "format": {"type": "topojson", "feature": "oceans"}
       },
       "mark": {"type": "geoshape", "fill": "skyblue"}
@@ -33,7 +33,7 @@
           "lookup": "properties.NAME",
           "from": {
             "data": {
-              "url": "world_population.csv"
+              "url": "https://raw.githubusercontent.com/IsaacAlderton/FIT3179/main/world_population.csv"
             },
             "key": "country",
             "fields": ["pop2023", "landAreaKm", "worldPercentage"]
@@ -63,7 +63,7 @@
     },
     {
       "data": {
-        "url": "WorldMapWithGraticules.topojson",
+        "url": "https://raw.githubusercontent.com/IsaacAlderton/FIT3179/main/WorldMapWithGraticules.topojson",
         "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
       },
       "mark": {"type": "geoshape", "fill": null, "stroke": "lightgray"}
