@@ -39,13 +39,13 @@
             "fields": ["pop2023", "landAreaKm", "worldPercentage"]
           }
         },
-        {"calculate": "datum.pop2023 / datum.landAreaKm", "as": "Pop Density"},
+        {"calculate": "datum.pop2023 / datum.landAreaKm", "as": "People per square km"},
         {"calculate": "datum.worldPercentage * 100", "as": "Total Percent"}
       ],
       "mark": {"type": "geoshape"},
       "encoding": {
         "color": {
-          "field": "Pop Density",
+          "field": "People per square km",
           "type": "quantitative",
           "scale": {
             "type": "threshold",
