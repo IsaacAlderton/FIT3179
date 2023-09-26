@@ -48,7 +48,7 @@
             dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. </p>
         </div>
       </div>
-      <div class="pure-u-1-2">
+      <div class="pure-u-1-2" style="width: 50%; height: 50%">
         <div id="vis1" class="vis-container"></div>
       </div>
     </div>
@@ -56,7 +56,7 @@
 
     <!-- pure grid group -->
     <div class="pure-g">
-      <div class="pure-u-1-3">
+      <div class="pure-u-2-3">
         <div id="vis2" class="vis-container"></div>
       </div>
       <div class="pure-u-1-3">
@@ -78,8 +78,8 @@
   </div> <!-- end page -->
 
   <script type="text/javascript">
-    var specVis1 = "./wk_10_homework_interactive.vg.json";
-    var specVis2 = "./W9_Homework_map.vg.json";
+    var specVis1 = "./W9_Homework_map.vg.json";
+    var specVis2 = "./wk_10_homework_interactive.vg.json";
 
     vegaEmbed('#vis1', specVis1, { "actions": false }).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
