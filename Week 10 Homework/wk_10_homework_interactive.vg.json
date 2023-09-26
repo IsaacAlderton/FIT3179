@@ -29,7 +29,7 @@
     },
     {
       "calculate": "datum.Total/datum.landAreaKm * 1000000",
-      "as": "Emissions per square km (t/km^2)"
+      "as": "Emissions per sq. km"
     }
   ],
   "encoding": {
@@ -58,12 +58,12 @@
           "scale": {
             "type": "threshold",
             "domain": [5, 10, 20, 30, 40],
-            "range": [50, 100, 250, 300, 400, 500]
+            "range": [25, 75, 150, 200, 300, 400]
           },
           "legend": {"format": ".1s"}
         },
         "color": {
-          "field": "Emissions per square km (t/km^2)",
+          "field": "Emissions per sq. km",
           "type": "quantitative",
           "scale": {
             "type": "threshold",
@@ -98,7 +98,7 @@
           {"field": "Total", "type": "quantitative", "title": "CO2 Emissions (Mt)", "format": ","},
           {"field": "pop2010", "type": "quantitative", "title": "Population", "format": ","},
           {"field": "Emissions per Capita (t)", "type": "quantitative", "format": ".2f"},
-          {"field": "Emissions per square km (t/km^2)", "type": "quantitative", "format": ".2f"}
+          {"field": "Emissions per sq. km", "type": "quantitative", "format": ".2f"}
         ]
       }
     }
