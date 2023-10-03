@@ -1,0 +1,118 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 400,
+  "height": 800,
+  "title": "CO2 Emission Sources",
+  "data": {
+    "url": "vis2_data.csv"
+  },
+  "transform": [
+    {"filter": "datum.Year > 0"},
+    {
+      "fold": [
+        "Coal",
+        "Oil",
+        "Gas",
+        "Cement",
+        "Flaring",
+        "Other"
+      ],
+      "as": [
+        "key",
+        "source"
+      ]
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"opacity": 0.6, "type": "area", "tooltip": true},
+      "params": [
+        {
+          "name": "Source",
+          "select": {"type": "point", "fields": ["key"]},
+          "bind": "legend"
+        }
+      ],
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "timeUnit": "year",
+          "type": "nominal",
+          "title": "Year"
+        },
+        "y": {
+          "field":"source",
+          "aggregate": "sum",
+          "type": "quantitative",
+          "title": "CO2 Emissions (Mt)"
+        },
+        "color": {
+          "type": "nominal",
+          "field": "key",
+          "title": "Source",
+          "scale": {
+            "domain": [
+              "Other",
+              "Oil",
+              "Flaring",
+              "Coal",
+              "Gas",
+              "Cement"
+            ],
+            "range": [
+            "#a65628",
+            "#e41a1c",
+            "#377eb8",
+            "#ff7f00",
+            "#984ea3",
+            "#4daf4a"
+            ]
+            }
+        },
+        "opacity": {
+          "condition": {"param": "Source", "value": 0.6},
+          "value": 0.2
+        }
+      }
+    },
+    {
+      "mark": {"type": "line", "tooltip": true},
+      "encoding": {
+        "x": {"field": "Year","timeUnit": "year", "type": "nominal"},
+        "y": {
+          "aggregate": "sum",
+          "field": "source",
+          "type": "quantitative",
+          "stack": "zero"
+        },
+        "color": {
+          "field": "key",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Coal",
+              "Oil",
+              "Gas",
+              "Cement",
+              "Flaring",
+              "Other"
+            ],
+            "range": [
+            "#a65628",
+            "#e41a1c",
+            "#377eb8",
+            "#ff7f00",
+            "#984ea3",
+            "#4daf4a"
+            ]
+            },
+          "title": "CO2 Emissions (Mt)"
+        },
+        "opacity": {
+          "condition": {"param": "Source", "value": 0.6},
+          "value": 0.2
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+ {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 800,
+  "title": "CO2 Emissions per Country",
+  "data": {
+    "url": "vis2_data.csv"
+  },
+  "params": [
+    {
+      "name": "Year_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          "0000",
+          "1980",
+          "2000",
+          "2010",
+          "2021"
+        ],
+        "labels": [
+          "Please Select",
+          "1980",
+          "2000",
+          "2010",
+          "2021"
+        ],
+        "name": "Year Selection: "
+      }
+      },
+    {
+      "name": "Emissions_Above",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 12000,
+        "step": 10,
+        "name": "Minimum emissions per square km (t/km^2): "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "datum.Total > 0"},
+    {"filter": "datum.Population > 0"},
+    {"filter": "datum.Year == Year_selection"},
+    {
+      "calculate": "datum.Total/datum.Population * 1000000",
+      "as": "Emissions_per_capita"
+    },
+    {
+      "calculate": "datum.Total/datum.landAreaKm * 1000000",
+      "as": "Emissions_per_area"
+    },
+    {"filter": "datum.Emissions_per_area > Emissions_Above"}
+  ],
+  "encoding": {
+    "x": {
+      "field": "Population",
+      "type": "quantitative",
+      "title": "Population",
+      "axis": {"tickCount": 7},
+      "scale": {"type": "log", "domain": [1000, 1500000000]}
+    },
+    "y": {
+      "field": "Total",
+      "type": "quantitative",
+      "title": "CO2 Emissions (Mt)",
+      "axis": {"tickCount": 6},
+      "scale": {"type": "log", "domain": [0.003, 12000]}
+    }
+  },
+  "layer": [
+    {
+      "mark": "circle",
+      "encoding": {
+        "size": {
+          "field": "Emissions_per_capita",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [5, 10, 20, 30, 40],
+            "range": [100, 300, 500, 700, 900, 1100]
+          },
+          "legend": {"format": ".1s"}
+        },
+        "color": {
+          "field": "Continent",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+            "Africa",
+            "Asia",
+            "Oceania",
+            "Europe",
+            "North America",
+            "South America"
+            ],
+            "range": [
+            "#a65628",
+            "#e41a1c",
+            "#377eb8",
+            "#ff7f00",
+            "#984ea3",
+            "#4daf4a"
+            ]
+            }
+        },
+        "opacity": {"value": 0.7}
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -12,
+        "fontSize": 11.5,
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "text": {"field": "Country", "type": "nominal"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {
+            "test": "datum['Country'] == 'China' || datum['Country'] == 'Australia' || datum['Country'] == 'United States of America' || datum['Country'] == 'India' || datum['Country'] == 'New Zealand' || datum['Country'] == 'Brazil' ||  datum['Country'] == 'Germany' || datum['Country'] == 'Iceland' || datum['Country'] == 'Spain'",
+            "value": 1
+          },
+          "value": 0
+        },
+        "tooltip": [
+          {"field": "Country", "type": "nominal"},
+          {"field": "Total", "type": "quantitative", "title": "CO2 Emissions (Mt)", "format": ","},
+          {"field": "Population", "type": "quantitative", "title": "Population", "format": ","},
+          {"field": "Emissions_per_capita", "type": "quantitative", "title": "Emissions per Capita (t)", "format": ".2f"},
+          {"field": "Emissions_per_area", "type": "quantitative", "title": "Emissions per square km (t/km^2)", "format": ".2f"}
+        ]
+      }
+    }
+  ]
+}

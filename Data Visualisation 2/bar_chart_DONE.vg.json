@@ -1,0 +1,106 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Growth Over Time",
+  "data": {
+    "url": "vis2_data.csv"
+  },
+  "transform": [
+    {"filter": "datum.Year > 0"}
+  ],
+  "repeat": {"layer": ["EmissionGrowth", "PopGrowth"]},
+  "spec": {
+    "layer": [
+      {
+        "mark": "bar",
+        "encoding": {
+          "x": {
+            "field": "Continent",
+            "type": "nominal"
+          },
+          "y": {
+            "aggregate": "sum",
+            "field": {"repeat": "layer"},
+            "type": "quantitative",
+            "title": "% Change (1980 - 2021)"
+          },
+          "color": {
+            "datum": {"repeat": "layer"}, 
+            "title": "Metric",
+            "scale": {
+              "domain": [
+                "EmissionGrowth",
+                "PopGrowth"
+              ],
+              "range": [
+                "#ff7f00",
+                "#4daf4a"
+              ]
+            }
+          },
+          "xOffset": {"datum": {"repeat": "layer"}}
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "dx": -4,
+          "dy": 12,
+          "angle": 90,
+          "baseline": "middle",
+          "align": "right"
+        },
+        "encoding": {
+          "x": {
+            "field": "Continent",
+            "type": "nominal"
+          },
+          "y": {
+            "aggregate": "sum",
+            "field": "EmissionGrowth",
+            "type": "quantitative",
+            "title": "% Change (1980 - 2021)"
+          },
+          "text": {
+            "aggregate": "sum",
+            "field": "EmissionGrowth",
+            "type": "quantitative", 
+            "format": ".2f"
+          }
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "dx": -8,
+          "dy": -10,
+          "angle": 90,
+          "baseline": "middle",
+          "align": "right"
+        },
+        "encoding": {
+          "x": {
+            "field": "Continent",
+            "type": "nominal"
+          },
+          "y": {
+            "aggregate": "sum",
+            "field": "PopGrowth",
+            "type": "quantitative",
+            "title": "% Change (1980 - 2021)"
+          },
+          "text": {
+            "aggregate": "sum",
+            "field": "PopGrowth",
+            "type": "quantitative", 
+            "format": ".2f"
+          }
+        }
+      }
+    ]
+  },
+  "config": {
+    "view": {"stroke": "transparent"},
+    "facet": {"spacing": 10},
+    "axis": {"domainWidth": 1}
+  }
+}
