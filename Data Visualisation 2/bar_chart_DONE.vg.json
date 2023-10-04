@@ -11,8 +11,8 @@
   "spec": {
     "layer": [
       {
+        "width": {"step": 50, "for": "position"},
         "mark": "bar",
-        "width": 300,
         "encoding": {
           "x": {
             "field": "Continent",
