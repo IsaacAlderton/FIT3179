@@ -38,7 +38,7 @@
               ]
             }
           },
-          "xOffset": {"datum": {"repeat": "layer"}}
+          "xOffset": {"field": {"repeat": "layer"}}
         }
       },
       {
