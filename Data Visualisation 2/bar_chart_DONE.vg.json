@@ -12,7 +12,7 @@
     "layer": [
       {
         "mark": "bar",
-        "width": 500,
+        "width": 400,
         "encoding": {
           "x": {
             "field": "Continent",
