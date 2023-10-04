@@ -4,7 +4,6 @@
   "data": {
     "url": "vis2_data.csv"
   },
-  "width": 500,
   "transform": [
     {"filter": "datum.Year > 0"}
   ],
@@ -13,6 +12,7 @@
     "layer": [
       {
         "mark": "bar",
+        "width": 500,
         "encoding": {
           "x": {
             "field": "Continent",
