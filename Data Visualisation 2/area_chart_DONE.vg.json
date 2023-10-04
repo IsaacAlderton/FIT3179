@@ -105,8 +105,7 @@
             "#984ea3",
             "#4daf4a"
             ]
-            },
-          "title": "CO2 Emissions (Mt)"
+            }
         },
         "opacity": {
           "condition": {"param": "Source", "value": 0.6},
