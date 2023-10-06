@@ -69,19 +69,30 @@
     </div>
     <!-- end pure grid group -->
 
+        <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div class="description description-left">
+          <h2>Population Density per Country (2023)</h2>
+          <p>The countries with the highest CO2 emissions per capita in 2021 were Australia, Saudi Arabia, Spain, 
+            the USA, Mongolia and Oman, all with levels greater than 14.5 tonnes of CO2 per capita. The orthographic 
+            projection depicts that the continents of Africa and South America created a relatively low amount of CO2 
+            emissions from fossil fuels per capita when compared to those of North America, Asia, and Oceania.
+          The top </p>
+        </div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+    
      <!-- pure grid group -->
     <div class="pure-g">
       <div class="pure-u-1-2">
         <div id="vis3" class="vis-container"></div>
-      </div>
-      <div class="pure-u-1-2">
-        <div class="description description-right">
-          <h2>Global CO2 Emissions (2010)</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat
-            sed. Egestas purus viverra accumsan in nisl. Egestas purus viverra accumsan in nisl.</p>
         </div>
       </div>
+        <div class="pure-u-1-2">
+            <div id="vis4" class="vis-container"></div>
+        </div>
     </div>
     <!-- end pure grid group -->
 
@@ -115,6 +126,8 @@
     var specVis2 = "./bubble_plot_DONE.vg.json";
     var specVis3 = "./area_chart_DONE.vg.json";
     var specVis4 = "./bar_chart_DONE.vg.json";
+    var specVis5 = "./line_chart_DONE.vg.json";
+    var specVis6 = "./dot_plot_DONE.vg.json";
 
     vegaEmbed('#vis1', specVis1, { "actions": false }).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
@@ -129,6 +142,14 @@
     }).catch(console.error);
 
     vegaEmbed('#vis4', specVis4, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis5', specVis5, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis6', specVis6, { "actions": false }).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
   </script>
