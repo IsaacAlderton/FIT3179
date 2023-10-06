@@ -1,0 +1,75 @@
+ {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Electricity Generation and Consumption",
+    "fontSize": 20,
+    "dy": -10,
+    "anchor": "middle"
+  },
+  "data": {
+    "url": "vis2_data2.csv"
+  },
+
+  "transform": [
+    {"filter": "datum.EnergyPerCapita > 0"},
+    {"filter": "datum.RenewablePerCapita > 0"}
+  ],
+  "mark": "circle",
+  "params": [
+    {
+      "name": "Source",
+      "select": {"type": "point", "fields": ["Year"]},
+      "bind": "legend"
+    },
+    {
+      "name": "grid",
+      "select": "interval",
+      "bind": "scales"
+    }
+  ],
+  "encoding": {
+    "facet": {"field": "Continent", "type": "nominal", "columns": 2},
+    "x": {
+      "field": "EnergyPerCapita",
+      "type": "quantitative",
+      "title": "Energy Consumption (kWh/person)",
+      "scale": {"type": "log", "domain": [100, 300000]}
+    },
+    "y": {
+      "field": "RenewablePerCapita",
+      "type": "quantitative",
+      "title": "Renewable Generation (kWh/person)",
+      "scale": {"type": "log", "domain": [0.01, 5000]}
+    },
+    "color": {
+      "field": "Year",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+        "2000",
+        "2005",
+        "2010",
+        "2015",
+        "2020"
+        ],
+        "range": [
+        "#e41a1c",
+        "#377eb8",
+        "#ff7f00",
+        "#984ea3",
+        "#4daf4a"
+        ]
+      }
+    },
+    "opacity": {
+      "condition": {"param": "Source", "value": 0.8},
+      "value": 0.2
+    },
+    "tooltip": [
+      {"field": "Country", "type": "nominal"},
+      {"field": "Year", "type": "nominal"},
+      {"field": "EnergyPerCapita", "type": "quantitative", "title": "Energy Consumption (kWh/person)", "format": ".2f"},
+      {"field": "RenewablePerCapita", "type": "quantitative", "title": "Renewable Energy Generation (kWh/person)", "format": ".2f"}
+    ]
+  }
+}

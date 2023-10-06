@@ -1,0 +1,126 @@
+ {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 400,
+  "height": 400,
+  "title": {
+    "text": "Global Electricity Generation Sources",
+    "fontSize": 20,
+    "dy": -10,
+    "anchor": "middle"
+  },
+  "data": {
+    "url": "vis2_data2.csv"
+  },
+  "transform": [
+    {
+      "fold": [
+        "FossilFuels",
+        "Nuclear",
+        "Renewables"
+      ],
+      "as": [
+        "key",
+        "source"
+      ]
+    }
+  ],
+  "layer": [
+    {
+      "encoding": {
+        "x": {"field": "Year", "type": "nominal", "title": "Year"},
+        "y": {
+          "field": "source",
+          "aggregate": "sum",
+          "type": "quantitative",
+          "title": "Electricity Generated (TWh)"
+        },
+        "color": {
+          "field": "key",
+          "title": "Source",
+          "type": "nominal",
+          "scale": {
+            "domain": ["FossilFuels", "Nuclear", "Renewables"],
+            "range": ["#a65628", "#e41a1c", "#377eb8"]
+          }
+        }
+      },
+      "layer":[
+        { "mark": {"type": "line", "tooltip": true}},
+        {
+          "params": [{
+            "name": "label",
+            "select": {
+              "type": "point",
+              "encodings": ["x"],
+              "nearest": true,
+              "on": "mouseover"
+            }
+          }],
+          "mark": "point",
+          "encoding": {
+            "opacity": {
+              "condition": {
+                "param": "label",
+                "empty": false,
+                "value": 1
+              },
+              "value": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "transform": [{"filter": {"param": "label", "empty": false}}],
+      "layer": [
+        {
+          "mark": {"type": "rule", "color": "gray"},
+          "encoding": {
+            "x": {"type": "nominal", "field": "Year", "aggregate": "min"}
+          }
+        },
+        {
+          "encoding": {
+            "text": {
+              "field": "source",
+              "aggregate": "sum",
+              "type": "quantitative"
+            },
+            "x": {"type": "nominal", "field": "Year"},
+            "y": {
+              "field": "source",
+              "aggregate": "sum",
+              "type": "quantitative"
+            }
+          },
+          "layer": [
+            {
+              "mark": {
+                "type": "text",
+                "stroke": "white",
+                "strokeWidth": 2,
+                "fontSize": 11.5,
+                "align": "left",
+                "dx": 25,
+                "dy": 35
+              }
+            },
+            {
+              "mark": {"type": "text", "align": "left", "dx": 5, "dy": 5},
+              "encoding": {
+                "color": {
+                  "field": "key",
+                  "type": "nominal",
+                  "scale": {
+                    "domain": ["FossilFuels", "Nuclear", "Renewables"],
+                    "range": ["#a65628", "#e41a1c", "#377eb8"]
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
