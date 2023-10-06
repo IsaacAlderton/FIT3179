@@ -1,6 +1,12 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Growth Over Time",
+  "title": {
+    "text": "Growth Over Time",
+    "fontSize": 20,
+    "dy": -10,
+    "anchor": "middle"
+  },
+  "height": 400,
   "data": {
     "url": "vis2_data.csv"
   },
