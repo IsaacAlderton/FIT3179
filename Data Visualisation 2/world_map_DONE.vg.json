@@ -7,17 +7,19 @@
     "url": "ne_110m_admin_0_countries.topojson",
     "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
   },
-  "projection": {"type": "orthographic", "rotate": {"expr": "[Horizontal rotation, Vertical rotation]"}},
+  "projection": {"type": "orthographic", "rotate": {"expr": "[Horizontal_rotation, Vertical_rotation]"}},
   "params": [
     {
-      "name": "Horizontal rotation",
+      "name": "Horizontal_rotation",
       "value": 0,
-      "bind": {"input": "range", "min": -180, "max": 180, "step": 1}
+      "bind": {"input": "range", "min": -180, "max": 180, "step": 1},
+      "title": "Horizontal Rotation"
     },
     {
-      "name": "Vertical rotation",
+      "name": "Vertical_rotation",
       "value": 0,
-      "bind": {"input": "range", "min": -180, "max": 180, "step": 1}
+      "bind": {"input": "range", "min": -180, "max": 180, "step": 1},
+      "title": "Vertical Rotation"
     }
   ],
   "layer":[
