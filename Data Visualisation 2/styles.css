@@ -18,9 +18,13 @@ body {
     padding-top: 35px;
 }
 
-.vis-container {
+.vis-container1 {
     width: 100%;
-    padding-left: 200px;
+    padding-left: 250px;
+}
+
+.vis-container2 {
+    width: 100%;
 }
 
 .description h2,
