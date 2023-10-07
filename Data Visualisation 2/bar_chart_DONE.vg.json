@@ -52,7 +52,7 @@
           "type": "text",
           "dx": 0,
           "dy": -10,
-          "fontWeight": 20,
+          "fontWeight": "bold",
           "angle": 0,
           "baseline": "middle",
           "align": "center"
@@ -82,7 +82,7 @@
           "type": "text",
           "dx": 0,
           "dy": -10,
-          "fontWeight": 20,
+          "fontWeight": "bold",
           "angle": 0,
           "baseline": "middle",
           "align": "center"
