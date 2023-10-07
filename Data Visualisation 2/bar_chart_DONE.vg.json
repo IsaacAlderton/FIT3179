@@ -51,7 +51,7 @@
         "mark": {
           "type": "text",
           "dx": 0,
-          "dy": -15,
+          "dy": -10,
           "fontWeight": "bold",
           "angle": 0,
           "baseline": "middle",
@@ -81,7 +81,7 @@
         "mark": {
           "type": "text",
           "dx": 0,
-          "dy": -15,
+          "dy": -10,
           "fontWeight": "bold",
           "angle": 0,
           "baseline": "middle",
