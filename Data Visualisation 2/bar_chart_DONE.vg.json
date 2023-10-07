@@ -6,7 +6,7 @@
     "dy": -10,
     "anchor": "middle"
   },
-  "height": 600,
+  "height": 400,
   "data": {
     "url": "vis2_data.csv"
   },
@@ -50,11 +50,11 @@
       {
         "mark": {
           "type": "text",
-          "dx": 20,
-          "dy": -20,
+          "dx": 0,
+          "dy": -30,
           "angle": 0,
           "baseline": "middle",
-          "align": "right"
+          "align": "middle"
         },
         "encoding": {
           "x": {
@@ -79,11 +79,11 @@
       {
         "mark": {
           "type": "text",
-          "dx": 20,
-          "dy": -20,
+          "dx": 0,
+          "dy": -30,
           "angle": 0,
           "baseline": "middle",
-          "align": "right"
+          "align": "middle"
         },
         "encoding": {
           "x": {
