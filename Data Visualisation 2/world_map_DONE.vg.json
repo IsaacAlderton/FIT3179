@@ -1,6 +1,11 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "CO2 Emissions per Capita (2021)",
+ "title": {
+    "text": "CO2 Emissions per Capita (2021)",
+    "fontSize": 20,
+    "dy": -10,
+    "anchor": "middle"
+  },
   "width": 800,
   "height": 500,
   "data": {
