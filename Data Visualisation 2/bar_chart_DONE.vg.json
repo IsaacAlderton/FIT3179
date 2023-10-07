@@ -50,8 +50,8 @@
       {
         "mark": {
           "type": "text",
-          "dx": 6,
-          "dy": -12,
+          "dx": 20,
+          "dy": -20,
           "angle": 0,
           "baseline": "middle",
           "align": "right"
@@ -79,8 +79,8 @@
       {
         "mark": {
           "type": "text",
-          "dx": 30,
-          "dy": -12,
+          "dx": 20,
+          "dy": -20,
           "angle": 0,
           "baseline": "middle",
           "align": "right"
