@@ -6,8 +6,8 @@
     "dy": -10,
     "anchor": "middle"
   },
-  "width": 300,
-  "height": 300,
+  "width": 250,
+  "height": 250,
   "data": {
     "url": "vis2_data2.csv"
   },
