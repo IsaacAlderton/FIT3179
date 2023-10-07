@@ -54,7 +54,7 @@
           "dy": -30,
           "angle": 0,
           "baseline": "middle",
-          "align": "middle"
+          "align": "center"
         },
         "encoding": {
           "x": {
@@ -83,7 +83,7 @@
           "dy": -30,
           "angle": 0,
           "baseline": "middle",
-          "align": "middle"
+          "align": "center"
         },
         "encoding": {
           "x": {
