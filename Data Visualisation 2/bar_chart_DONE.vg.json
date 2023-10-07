@@ -18,7 +18,7 @@
     "layer": [
       {
         "width": {"step": 50, "for": "position"},
-        "mark": { "type": "bar", "opacity": 0.8},
+        "mark": {"type": "bar", "opacity": 0.6, "tooltip": true},
         "encoding": {
           "x": {
             "field": "Continent",
