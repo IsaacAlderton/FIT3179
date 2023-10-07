@@ -22,7 +22,10 @@
         "encoding": {
           "x": {
             "field": "Continent",
-            "type": "nominal"
+            "type": "nominal",
+            "axis": {
+              "labelAngle": -45
+            }
           },
           "y": {
             "aggregate": "sum",
