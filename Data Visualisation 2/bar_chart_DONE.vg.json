@@ -6,7 +6,7 @@
     "dy": -10,
     "anchor": "middle"
   },
-  "height": 400,
+  "height": 600,
   "data": {
     "url": "vis2_data.csv"
   },
@@ -18,7 +18,7 @@
     "layer": [
       {
         "width": {"step": 50, "for": "position"},
-        "mark": "bar",
+        "mark": { "type": "bar", "opacity": 0.8},
         "encoding": {
           "x": {
             "field": "Continent",
@@ -50,9 +50,9 @@
       {
         "mark": {
           "type": "text",
-          "dx": -4,
-          "dy": 12,
-          "angle": 90,
+          "dx": 6,
+          "dy": -12,
+          "angle": 0,
           "baseline": "middle",
           "align": "right"
         },
@@ -72,15 +72,16 @@
             "field": "EmissionGrowth",
             "type": "quantitative", 
             "format": ".2f"
-          }
+          },
+          "color": {"value": "#ff7f00"}
         }
       },
       {
         "mark": {
           "type": "text",
-          "dx": -8,
-          "dy": -10,
-          "angle": 90,
+          "dx": 30,
+          "dy": -12,
+          "angle": 0,
           "baseline": "middle",
           "align": "right"
         },
@@ -100,7 +101,8 @@
             "field": "PopGrowth",
             "type": "quantitative", 
             "format": ".2f"
-          }
+          },
+          "color": {"value": "#4daf4a"}
         }
       }
     ]
