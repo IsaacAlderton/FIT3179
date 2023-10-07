@@ -6,7 +6,7 @@
     "dy": -10,
     "anchor": "middle"
   },
-  "width": 880,
+  "width": 850,
   "height": 500,
   "data": {
     "url": "ne_110m_admin_0_countries.topojson",
