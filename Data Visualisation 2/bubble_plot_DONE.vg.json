@@ -17,21 +17,20 @@
       "bind": {
         "input": "select",
         "options": [
-          "0000",
           "1980",
           "2000",
           "2010",
           "2021"
         ],
         "labels": [
-          "Please Select",
           "1980",
           "2000",
           "2010",
           "2021"
         ],
         "name": "Year Selection: "
-      }
+      },
+     "value": "1980"
       },
     {
       "name": "Emissions_Above",
