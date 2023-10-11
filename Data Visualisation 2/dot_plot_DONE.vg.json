@@ -35,12 +35,14 @@
       "field": "EnergyPerCapita",
       "type": "quantitative",
       "title": "Energy Consumption (kWh/person)",
+      "axis": {"tickCount": 10},
       "scale": {"type": "log", "domain": [100, 300000]}
     },
     "y": {
       "field": "RenewablePerCapita",
       "type": "quantitative",
       "title": "Renewable Generation (kWh/person)",
+      "axis": {"tickCount": 10},
       "scale": {"type": "log", "domain": [0.01, 5000]}
     },
     "color": {
