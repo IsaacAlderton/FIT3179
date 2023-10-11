@@ -35,7 +35,6 @@
           },
           "color": {
             "datum": {"repeat": "layer"}, 
-            "title": "Metric",
             "scale": {
               "domain": [
                 "EmissionGrowth",
@@ -45,7 +44,11 @@
                 "#ff7f00",
                 "#4daf4a"
               ]
-            }
+            },
+            "legend": {
+              "labelExpr": "datum.label == 'EmissionGrowth' ? 'Emissions Growth' : datum.label == 'PopGrowth'"
+            },
+            "title": "Metric"
           },
           "xOffset": {"datum": {"repeat": "layer"}}
         }
