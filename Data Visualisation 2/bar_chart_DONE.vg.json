@@ -46,7 +46,7 @@
               ]
             },
             "legend": {
-              "labelExpr": "datum.label == 'EmissionGrowth' ? 'Emissions Growth' : datum.label == 'PopGrowth'"
+              "labelExpr": "datum.label == 'EmissionGrowth' ? 'Emissions Growth' :datum.label == 'PopGrowth' ? 'Population Growth' : 'Metric'"
             },
             "title": "Metric"
           },
